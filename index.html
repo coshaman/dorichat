@@ -49,10 +49,16 @@
     <style>
           #do {
             border-radius: 0px 10px 10px 10px; background-color: white; color: black; width: auto;float:left; padding: 0.6vw;
+            max-width: 60%;
+            margin-bottom: 5vh;
+            margin-right: 50%;
           }
 
           #se {
             border-radius: 10px 0px 10px 10px; background-color: rgb(252, 231, 7); color: black; width: auto;float:right; padding: 0.6vw;
+            margin-bottom: 5vh;
+            margin-left: 50%;
+            max-width: 60%;
           }
     </style>
 </head>
@@ -106,9 +112,16 @@
 		var ma = "<div id='do'>안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!</div><br><br>";
     var li = ['시간', '안녕', '반가워', '고마워', '엿먹어', '초기화', '도움말'];
 		function send1(){
+      if(qu == null) {
+        qu = ['gg'];
+        an = ['an'];
+        localStorage.setItem("q", JSON.stringify(qu));
+        localStorage.setItem("a", JSON.stringify(an));
+      }
 			var m = document.getElementById('send').value;
+      var m2 = document.getElementById('send').value;
       if(m != "") {
-			     ma = ma + "<div id='se'>" + m + "</div><br><br>"
+			     ma = ma + "<div id='se'>" + m + "</div>"
       }
 			document.getElementById("box").innerHTML = ma;
 			document.getElementById('send').value = "";
@@ -137,10 +150,36 @@
           location.reload();
         }
         else if(m == '도움말') {
-          m = "도리에게 물어볼 수 있는 것 리스트 : " + li;
+          m = "도리에게 물어볼 수 있는 것 리스트 : " + li + ', ' + qu;
         }
+        else if (m == '복사') {
+
+        }
+        else {
+          m = "오류가 발생했습니다!"
+        }
+
         ma = ma + "<div id='do'>" + m + "</div><br><br>"
-  			document.getElementById("box").innerHTML = ma;
+        document.getElementById("box").innerHTML = ma;
+      }
+      else if (qu.indexOf(m) != -1) {
+        m = an[qu.indexOf(m)]
+        ma = ma + "<div id='do'>" + m + "</div><br><br>"
+        document.getElementById("box").innerHTML = ma;
+      }
+      else {
+        var lim = m2.split(' ')
+        if(lim[0] == '배워') {
+          qu.unshift(lim[1]);
+          var gg = lim.slice(2);
+          var jeo = gg.join(' ');
+          an.unshift(jeo);
+          localStorage.setItem("q", JSON.stringify(qu));
+          localStorage.setItem("a", JSON.stringify(an));
+        }
+        else {
+          m = '처음 듣는 말이네요. 배워 [명령어] [대답] 으로 저에게 알려주세요'
+        }
       }
       document.getElementById('mainchat').scrollTop = document.getElementById('mainchat').scrollHeight;
 		}
@@ -168,8 +207,8 @@
 
 
 
-    <div style="position: fixed; bottom: 15px; right: 15px">
-    	<input type="button" class="btn btn-outline-info" onclick="back()" id = 'night_day' value = '배경 On'>
+    <div style="position: fixed; bottom: 15px; right: 15px;">
+    	<input type="button" style="font-size:2vh;" class="btn btn-outline-info" onclick="back()" id = 'night_day' value = '배경 On'>
     </div>
     <script>
 		function back() {
