@@ -5,18 +5,20 @@
     <title>dory 채팅</title>
     <link rel="shortcut icon" type="image/x-icon" href="">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animate.css">
+    <script src="wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>-->
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="style.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="wow.min.js"></script>
+
     <script src="https://kit.fontawesome.com/4bea434f10.js" crossorigin="anonymous"></script>
-    <script>
-        new WOW().init();
-    </script>
+    <!---->
     <style type="text/css">
     </style>
     <!--<style>
@@ -42,6 +44,17 @@
     </style>-->
     <script>
     </script>
+
+
+    <style>
+          #do {
+            border-radius: 0px 10px 10px 10px; background-color: white; color: black; width: auto;float:left; padding: 0.6vw;
+          }
+
+          #se {
+            border-radius: 10px 0px 10px 10px; background-color: rgb(252, 231, 7); color: black; width: auto;float:right; padding: 0.6vw;
+          }
+    </style>
 </head>
 <body onload="init()" style="text-align: center;">
     <!--<header style="text-align: left;">
@@ -52,7 +65,7 @@
         <span><a href="#comments" style="color: white; text-decoration: none;">방명록</a></span>
       </nav>
     </header>-->
-    
+
     <!--<div style="position: fixed; bottom: 2px; right: 10px">
         <a href="#"><i class="fas fa-sort-up fa-5x"></i></a>
     </div>-->
@@ -64,66 +77,97 @@
 			</div>
 		</div>
 		<div style="height: 3vh;">
-			
+
 		</div>
 		<div style="height: 65vh; background-color: #0A122A; width: 75%; margin: auto; border-radius: 10px 10px 10px 10px;overflow:auto;" id="mainchat" class="mainchat">
 			<div style="height: 1.5vh;"></div>
 			<div style="width: 98%; margin: auto;" id="box">
-				<div style="border-radius: 0px 10px 10px 10px; background-color: white; color: black; width: auto;float:left;">&nbsp;안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!&nbsp;</div><br><br>
-				<div style="border-radius: 10px 0px 10px 10px; background-color: rgb(252, 231, 7); color: black; width: auto;float:right;">&nbsp;당신의 메세지&nbsp;</div>
+				<div id='do'>안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!</div><br><br>
 			</div>
 		</div>
 		<div style="height: 3vh;"></div>
 		<div style="width: 90%; margin: auto;">
-			
+
 			<div style="margin: auto;">
 				<input type="text" style="width: 50%;" placeholder="여기에 입력" onkeypress="if(event.keyCode==13) {send1();}" id="send">
 			</div>
-			
+
 		</div>
 	</div>
-   
+
     <script>
 		//localStorage.setItem("q", JSON.stringify(qu))
-		
+    // qu : 도리가 받을 수 있는 질문 목록, an : 도리가 대답하는 목록, li : 도리의 기존 명령어 목록
 		var q = localStorage.getItem("q");
-		var qu = JSON.parse(q)
-		console.log(qu)
+		var qu = JSON.parse(q);
+		console.log(qu);
 		var a = localStorage.getItem("a");
-		var an = JSON.parse(a)
-		var ma = "<div style='border-radius: 0px 10px 10px 10px; background-color: white; color: black; width: auto;float:left;'>&nbsp;안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!&nbsp;</div><br><br>"
-		
-		
+		var an = JSON.parse(a);
+		var ma = "<div id='do'>안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!</div><br><br>";
+    var li = ['시간', '안녕', '반가워', '고마워', '엿먹어', '초기화', '도움말'];
 		function send1(){
 			var m = document.getElementById('send').value;
-			ma = ma + "<div style='border-radius: 10px 0px 10px 10px; background-color: rgb(252, 231, 7); color: black; width: auto;float:right;'>&nbsp;" + m + "&nbsp;</div><br><br>"
+      if(m != "") {
+			     ma = ma + "<div id='se'>" + m + "</div><br><br>"
+      }
 			document.getElementById("box").innerHTML = ma;
 			document.getElementById('send').value = "";
+      if(li.indexOf(m) != -1) {
+        if(m == '안녕') {
+          m = '반가워요!';
+        }
+        else if(m == '시간') {
+          let today = new Date();
+          let hours = today.getHours(); // 시
+          let minutes = today.getMinutes();  // 분
+          let seconds = today.getSeconds();  // 초
+          let milliseconds = today.getMilliseconds(); // 밀리초
+          m = '시계도 못보나요... ' + hours + '시 ' + minutes + '분 ' + seconds + '초 ' + milliseconds + '밀리초잖아요! 쓸데없이 밀리초까지 알려주는 전 도리입니당';
+        }
+        else if(m == '반가워') {
+          m = '와! 샍...안녕하세요!'
+        }
+        else if(m == '엿먹어') {
+          m = '냠냠'
+        }
+        else if(m == '고마워') {
+          m = "뭔지는 모르겠지만 you're welome!";
+        }
+        else if(m == '초기화') {
+          location.reload();
+        }
+        else if(m == '도움말') {
+          m = "도리에게 물어볼 수 있는 것 리스트 : " + li;
+        }
+        ma = ma + "<div id='do'>" + m + "</div><br><br>"
+  			document.getElementById("box").innerHTML = ma;
+      }
+      document.getElementById('mainchat').scrollTop = document.getElementById('mainchat').scrollHeight;
 		}
 	</script>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div style="position: fixed; bottom: 15px; right: 15px">
     	<input type="button" class="btn btn-outline-info" onclick="back()" id = 'night_day' value = '배경 On'>
     </div>
