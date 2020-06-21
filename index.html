@@ -274,10 +274,10 @@
 						lank--;
 					}
 					if(name == "undefined" || name == null || name == "" || name == "null") {
-						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! ' + name + "님은 " + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
+						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! 당신은 ' + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
 					}
 					else {
-						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! 당신은 ' + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
+						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! ' + name + "님은 " + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
 					}
 				point += sumpoint;
 				localStorage.setItem("point", point);
