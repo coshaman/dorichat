@@ -207,13 +207,20 @@
 			var lim = m2.split(' ')
 			if(lim[0] == '배워') {
 				if(li.indexOf(lim[1]) == -1 && lim[1] != '검색' && lim[1] != '유튜브' && lim[1] != '이름') {
-					qu.unshift(lim[1]);
-					var gg = lim.slice(2);
-				  	var jeo = gg.join(' ');
-				  	an.unshift(jeo);
-				  	localStorage.setItem("q", JSON.stringify(qu));
-				  	localStorage.setItem("a", JSON.stringify(an));
-					m = '가르쳐주셔서 감사합니다!';
+					if(point > 99){
+						qu.unshift(lim[1]);
+						var gg = lim.slice(2);
+						var jeo = gg.join(' ');
+						an.unshift(jeo);
+						localStorage.setItem("q", JSON.stringify(qu));
+						localStorage.setItem("a", JSON.stringify(an));
+						m = '가르쳐주셔서 감사합니다!';
+						
+					}
+					
+					else{
+						m = '포인트가 부족해요. 100포인트 채워주세요!'
+					}
 				}
 			  	else {
 					m = '기본 명령어는 가르쳐주시면 안되요! 제 뇌 용량이 부족하다규요!'
@@ -232,7 +239,24 @@
 				localStorage.setItem('name', name);
 			}
 			else if(lim[0] == 'ㅅㅂ') {
+				var dice = 
 				m = "사발? 손발? 수박? 신발?"
+			}
+			else if(lim[0] == '주사위') {
+				var dice = parseInt( Math.random() * 6  ) + 1;
+				if(lim[1] == dice) {
+					plus = 10;
+				}
+				
+				if(name == "undefined" || name == null || name == "" || name == "null") {
+					m = '주사위는' + dice + ' 입니다! 당신의 포인트가 " + plus + '점 올랐어요!'
+				}
+				else {
+					m = '주사위는' + dice + ' 입니다! ' + name + "님의 포인트가 " + plus + '점 올랐어요!'
+				}
+				point += sumpoint;
+				localStorage.setItem("point", point);
+				
 			}
 			else if(lim[0] == '로또') {
 				var lotto = new Array(3); // 6개의 배열이 lotto에 저장
@@ -262,16 +286,22 @@
 				var lank = 4;
 					var sumpoint = 0;
 					if(lim[1] == lotto[0]) {
-						sumpoint += 10
+						sumpoint += 20;
 						lank--;
 					}
 					if(lim[2] == lotto[1]) {
-						sumpoint += 10
+						sumpoint += 20;
 						lank--;
 					}
 					if(lim[3] == lotto[2]) {
-						sumpoint += 10
+						sumpoint += 20;
 						lank--;
+					}
+					if(sumpoint == 60) {
+						sumpoint *= 5;
+					}
+					else if(sumpoint == 40){
+						sumpoint *= 2;
 					}
 					if(name == "undefined" || name == null || name == "" || name == "null") {
 						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! 당신은 ' + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
