@@ -124,6 +124,10 @@
 			localStorage.setItem("q", JSON.stringify(qu));
 			localStorage.setItem("a", JSON.stringify(an));
 		  }
+			if(isNaN(point)) {
+				point = 1000;
+				localStorage.setItem("point", point);
+			}
 				var m = document.getElementById('send').value;
 		  var m2 = document.getElementById('send').value;
 		  if(m != "" && m.replace(/ /g,"") != "") {
@@ -255,7 +259,7 @@
 				else {
 					m = '주사위는' + dice + ' 입니다! ' + name + "님의 포인트가 " + plus + '점 올랐어요!'
 				}
-				point += sumpoint;
+				point += plus;
 				localStorage.setItem("point", point);
 				
 			}
