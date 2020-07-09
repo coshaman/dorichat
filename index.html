@@ -2,24 +2,26 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>세미콜론</title>
+    <title>dory 채팅</title>
     <link rel="shortcut icon" type="image/x-icon" href="">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylepast.css">
+    <!--<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animate.css">
+    <script src="wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>-->
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="style.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/wow.min.js"></script>
+
     <script src="https://kit.fontawesome.com/4bea434f10.js" crossorigin="anonymous"></script>
-    <script>
-        new WOW().init();
-    </script>
+    <!---->
     <style type="text/css">
     </style>
-    <style>
+    <!--<style>
 	header {
 	     z-index: 500;
 	      position: fixed;
@@ -39,30 +41,417 @@
 	.active {
     		background-color: #4CAF50;
 	}
-		body {
-			background-color: black;
-		}
-    </style>
+    </style>-->
     <script>
-		setTimeout(function() {
-          myfunction()
-        }, 20000);
-        function myfunction() {
-            document.getElementById("id").innerHTML = "이번이 마지막 기회야. <br>이게 끝나면 돌이킬 수 없어.<br> 파란 약을 먹으면, 이야기는 여기서 끝나. 자넨 잠에서 깨어 일상으로 되돌아가 믿고 싶은 걸 믿으며 살면 돼.<br> 빨간 약을 먹으면, 이상한 나라에 남는다. 나는 토끼굴이 과연 어디까지 깊은지 보여줄 걸세.<br> 명심하게. 난 자네에게 진실만을 권한다는 걸.";
-			document.getElementById("but").style.display = "block";
-        }
     </script>
+
+
+    <style>
+          #do {
+            border-radius: 0px 10px 10px 10px; background-color: white; color: black; width: auto;float:left; padding: 0.6vw;
+            max-width: 60%;
+            margin-bottom: 5vh;
+            margin-right: 50%;
+          }
+
+          #se {
+            border-radius: 10px 0px 10px 10px; background-color: rgb(252, 231, 7); color: black; width: auto;float:right; padding: 0.6vw;
+            margin-bottom: 5vh;
+            margin-left: 50%;
+            max-width: 60%;
+          }
+    </style>
 </head>
-<body style="text-align: center;">
-    
-    <div style="margin: auto; margin-top: 30vh; color: white; text-align: center; width: 80%; font-size: 15px; font-family: Gugi;">
-    	<p class="wow animated fadeInUp" data-wow-duration="2s" data-wow-delay="3s" id="id">
-    		This is your last Chance.<br> After this, there is no turning back. <br>You take the blue pill, the story ends. You wake up in your bed and believe whatever you want to believe.<br> You take the red pill, you stay in Wonderland. And I'll show you how deep the rabbit hole goes.....<br> Remember, all I'm offering you it's the truth, nothing more.
-    	</p>
-    	<div id="but" style="display: none;">
-    		<button style="background-color: skyblue;" onclick="alert('really?');" style="width: 15vw; border-radius: 25px; height: 20px;">파란 약</button>
-    		<button style="background-color: red;" onclick="location.href='https://discord.gg/aAJdJhd'" style="width: 15vw; border-radius: 25px; height: 20px;">빨간 약</button>
-    	</div>
+<body onload="init()" style="text-align: center;">
+    <!--<header style="text-align: left;">
+      <nav>
+        <span class="active" style="color: white; font-size: 25px"><a href="#" style="color: white; text-decoration: none;">Main</a></span>
+        <span><a href="#wrap3" style="color: white; text-decoration: none;">소개/수상</a></span>
+        <span><a href="#project" style="color: white; text-decoration: none;">프로젝트</a></span>
+        <span><a href="#comments" style="color: white; text-decoration: none;">방명록</a></span>
+      </nav>
+    </header>-->
+
+    <!--<div style="position: fixed; bottom: 2px; right: 10px">
+        <a href="#"><i class="fas fa-sort-up fa-5x"></i></a>
+    </div>-->
+    <div style="margin-top: 1vh;">
+		<div style="height: auto;width: 100%;">
+			<div style="width: 80%; margin: auto; background-color: darkgray; height: 9vh; border-radius: 10px 10px 10px 10px">
+				<i class="fas fa-comments fa-3x" style="font-size: 5vh"></i>
+				<h1 style="font-size: 3vh">도리(Dory) chat</h1>
+			</div>
+		</div>
+		<div style="height: 3vh;">
+
+		</div>
+		<div style="height: 65vh; background-color: #0A122A; width: 75%; margin: auto; border-radius: 10px 10px 10px 10px;overflow:auto;" id="mainchat" class="mainchat">
+			<div style="height: 1.5vh;"></div>
+			<div style="width: 98%; margin: auto;" id="box">
+				<div id='do'>안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!</div><br><br>
+			</div>
+		</div>
+		<div style="height: 3vh;"></div>
+		<div style="width: 90%; margin: auto;">
+
+			<div style="margin: auto;">
+				<input type="text" style="width: 50%;" placeholder="여기에 입력" onkeypress="if(event.keyCode==13) {send1();}" id="send">
+			</div>
+
+		</div>
+	</div>
+
+    <script>
+		//localStorage.setItem("q", JSON.stringify(qu))
+    // qu : 도리가 받을 수 있는 질문 목록, an : 도리가 대답하는 목록, li : 도리의 기존 명령어 목록
+		var jbRandom = Math.random();
+		var q = localStorage.getItem("q");
+		var qu = JSON.parse(q);
+		var point = localStorage.getItem("point")
+		point *= 1;
+		var a = localStorage.getItem("a");
+		var an = JSON.parse(a);
+		var name = localStorage.getItem("name");
+		var ma = "<div id='do'>안녕하세요! 전 도리라고 해요! 편하게 하고 싶은 말씀 해주세요!</div><br><br>";
+    	var li = ['시간', '안녕', '반가워', '고마워', '엿먹어', '초기화', '도움말', '포인트'];
+		function send1(){
+			var plus;
+			var hmm;
+			var loto = new Array();
+		  if(qu == null) {
+			qu = ['gg'];
+			an = ['an'];
+			localStorage.setItem("q", JSON.stringify(qu));
+			localStorage.setItem("a", JSON.stringify(an));
+		  }
+			if(isNaN(point)) {
+				point = 1000;
+				localStorage.setItem("point", point);
+			}
+				var m = document.getElementById('send').value;
+		  var m2 = document.getElementById('send').value;
+		  if(m != "" && m.replace(/ /g,"") != "") {
+					 ma = ma + "<div id='se'>" + m + "</div>"
+		  }
+				document.getElementById("box").innerHTML = ma;
+				document.getElementById('send').value = "";
+		  if(li.indexOf(m) != -1) {
+			if(m == '안녕') {
+			  m = '반가워요!';
+			}
+			else if(m == '시간') {
+			  let today = new Date();
+			  let hours = today.getHours(); // 시
+			  let minutes = today.getMinutes();  // 분
+			  let seconds = today.getSeconds();  // 초
+			  let milliseconds = today.getMilliseconds(); // 밀리초
+			  m = '시계도 못보나요... ' + hours + '시 ' + minutes + '분 ' + seconds + '초 ' + milliseconds + '밀리초잖아요! 쓸데없이 밀리초까지 알려주는 전 도리입니당';
+			}
+			else if(m == '반가워') {
+			  m = '와! 샍...안녕하세요!'
+			}
+			else if(m == '엿먹어') {
+			  m = '냠냠'
+			}
+			else if(m == '고마워') {
+			  m = "뭔지는 모르겠지만 you're welome!";
+			}
+			else if(m == '초기화') {
+			  location.reload();
+			}
+			else if(m == '도움말') {
+			  m = "도리에게 물어볼 수 있는 것 리스트 : " + li + ', ' + qu + "</div><div id='do'>배워 [명령어] [대답] 으로 여러분만의 명령어와 답변을 입력할 수 있어요. 검색 [검색어]로 검색을, 유튜브 [검색어]로 유튜브 검색을 해보세요!</div><div id='do'>또, 로또를 통해 포인트를 올려보세요! 도리 로또는 1~30까지의 번호 3개로 이루어져 있습니다. 로또 [숫자] [숫자] [숫자]로 1등에 도전해보세요!</div><div id='do'>로또가 너무 어렵나요? 주사위 굴리기를 통해 쉽게 포인트를 얻어보세요. 주사위 [숫자]로 포인트를 얻어보세요!";
+			}
+			else if (m == '복사') {
+
+			}
+			else if (m == '포인트') {
+				if(name == "undefined" || name == null || name == "" || name == "null") {
+					m = "당신의 포인트 : " + point + "점";
+				}
+				else {
+					m = name + "님의 포인트 : " + point + "점";
+				}
+				
+			}
+			else {
+			  m = "오류가 발생했습니다!"
+			}
+			
+			ma = ma + "<div id='do'>" + m + "</div>"
+			document.getElementById("box").innerHTML = ma;
+			hmm = Math.floor( Math.random() * 6 );
+			  
+			if(hmm == 0){
+			   	plus = Math.floor( Math.random() * 5 + 1 );
+				point += plus;
+				localStorage.setItem("point", point);
+				m = "포인트가 " + plus + "점 올랐습니다.";
+				ma = ma + "<div id='do'>" + m + "</div>"
+				document.getElementById("box").innerHTML = ma;
+			}
+		  }
+		  else if (qu.indexOf(m) != -1) {
+			m = an[qu.indexOf(m)]
+			ma = ma + "<div id='do'>" + m + "</div>"
+			document.getElementById("box").innerHTML = ma;
+			  
+			hmm = Math.floor( Math.random() * 4 );
+			  
+			if(hmm == 0){
+			   	plus = Math.floor( Math.random() * 3 + 1 );
+				point += plus;
+				localStorage.setItem("point", point);
+				m = "포인트가 " + plus + "점 올랐습니다.";
+				ma = ma + "<div id='do'>" + m + "</div>"
+				document.getElementById("box").innerHTML = ma;
+			}
+		  }
+		  else {
+			var lim = m2.split(' ')
+			if(lim[0] == '배워') {
+				if(li.indexOf(lim[1]) == -1 && lim[1] != '검색' && lim[1] != '유튜브' && lim[1] != '이름') {
+					if(point > 99){
+						qu.unshift(lim[1]);
+						var gg = lim.slice(2);
+						var jeo = gg.join(' ');
+						an.unshift(jeo);
+						localStorage.setItem("q", JSON.stringify(qu));
+						localStorage.setItem("a", JSON.stringify(an));
+						m = '가르쳐주셔서 감사합니다!';
+						
+					}
+					
+					else{
+						m = '포인트가 부족해요. 100포인트 채워주세요!'
+					}
+				}
+			  	else {
+					m = '기본 명령어는 가르쳐주시면 안되요! 제 뇌 용량이 부족하다규요!'
+				}
+			}
+			else if(lim[0] == '검색') {
+				m = '<a target="_blank" href="https://www.google.com/search?q=' + lim.slice(1).join(" ") + '">' + lim.slice(1).join(" ") + '의 검색 결과(클릭)</a>';
+			}
+			else if(lim[0] == '유튜브') {
+				m = '<a target="_blank" href="https://www.youtube.com/results?search_query=' + lim.slice(1).join(" ") + '">' + lim.slice(1).join(" ") + '의 유튜브 검색 결과(클릭)</a>';
+			}
+			else if(lim[0] == '이름') {
+				var gg = lim.slice(1);
+				name = gg.join(' ');
+				m = '설정 완료! ' + name + "님 반가워요!";
+				localStorage.setItem('name', name);
+			}
+			else if(lim[0] == 'ㅅㅂ') {
+				var dice = 
+				m = "사발? 손발? 수박? 신발?"
+			}
+			else if(lim[0] == '주사위') {
+				var dice = Math.floor( Math.random() * 6 + 1 );
+				var plus = 0;
+				if(lim[1] == dice) {
+					plus = 10;
+				}
+				
+				if(name == "undefined" || name == null || name == "" || name == "null") {
+					m = '주사위는' + dice + ' 입니다! 당신의 포인트가 ' + plus + '점 올랐어요!'
+				}
+				else {
+					m = '주사위는' + dice + ' 입니다! ' + name + "님의 포인트가 " + plus + '점 올랐어요!'
+				}
+				point += plus;
+				localStorage.setItem("point", point);
+				
+			}
+			else if(lim[0] == '로또') {
+				var lotto = new Array(3); // 6개의 배열이 lotto에 저장
+				var count = 0; //추출한 로또번호의 갯수
+				var overl = true; // 번호중복 여부 변수
+
+				while (count < 3) { // 로또번호 6번 얻을 때까지 반복.
+					var number = 0; //랜덤번호 가져오는 변수
+					number = parseInt(Math.random() * 20) + 1; // 1~45사이에 랜덤번호 추출
+
+					for (var i = 0; i < count; i++) { // 1부터 i까지 반복하여 중복확인
+						if (lotto[i] == number) { // 중복된 번호가 아니면 넘어가기.
+							overl = false;
+						}
+					}
+
+					if (overl) { //중복 없을 시 count 1 증가
+						lotto[count] = number; //추출된 번호를 배열에 넣기
+						count++;
+					}
+
+					overl = true; //원래 true으로 돌아가기
+					
+					
+					
+				}
+				var lank = 4;
+					var sumpoint = 0;
+					if(lim[1] == lotto[0]) {
+						sumpoint += 20;
+						lank--;
+					}
+					if(lim[2] == lotto[1]) {
+						sumpoint += 20;
+						lank--;
+					}
+					if(lim[3] == lotto[2]) {
+						sumpoint += 20;
+						lank--;
+					}
+					if(sumpoint == 60) {
+						sumpoint *= 5;
+					}
+					else if(sumpoint == 40){
+						sumpoint *= 2;
+					}
+					if(name == "undefined" || name == null || name == "" || name == "null") {
+						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! 당신은 ' + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
+					}
+					else {
+						m = '로또 당첨 번호는' + lotto[0] + ', ' + lotto[1] + ', ' + lotto[2] + ' 입니다! ' + name + "님은 " + lank + "등이시고, 포인트가 " + sumpoint + '점 올랐어요!'
+					}
+				point += sumpoint;
+				localStorage.setItem("point", point);
+					
+			}
+			else {
+			  	m = '처음 듣는 말이네요. 배워 [명령어] [대답] 으로 저에게 알려주세요';
+			}
+			ma = ma + "<div id='do'>" + m + "</div>"
+			document.getElementById("box").innerHTML = ma;
+		  	/*hmm = Math.floor( Math.random() * 4 );
+			  
+			if(hmm != 0){
+			   	plus = Math.floor( Math.random() * 3 + 1 );
+				point += plus;
+				localStorage.setItem("point", point);
+				m = "포인트가 " + plus + "점 올랐습니다.";
+				ma = ma + "<div id='do'>" + m + "</div>"
+				document.getElementById("box").innerHTML = ma;
+			}*/
+		  }
+			
+			
+		  
+		  document.getElementById('mainchat').scrollTop = document.getElementById('mainchat').scrollHeight;
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="position: fixed; bottom: 15px; right: 15px;">
+    	<input type="button" style="font-size:2vh;" class="btn btn-outline-info" onclick="back()" id = 'night_day' value = '배경 On'>
     </div>
+    <script>
+		function back() {
+			if(document.querySelector('#night_day').value ==='night'){
+				document.querySelector('body').style.backgroundColor ='black';
+				document.querySelector('body').style.color ='white';
+				document.querySelector('#night_day').value ='blue';
+				localStorage.Theme = "night";
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = 'powderblue';
+				  i = i + 1;
+				}
+			  } else if(document.querySelector('#night_day').value ==='day') {
+				document.querySelector('body').style.backgroundColor ='white';
+				document.querySelector('body').style.color ='black';
+				document.querySelector('#night_day').value ='night';
+				  localStorage.Theme = "day";
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = 'white';
+				  i = i + 1;
+				}
+			  } else if(document.querySelector('#night_day').value ==='배경 On'){
+				document.querySelector('body').style.backgroundColor ='black';
+				document.querySelector('body').style.color ='white';
+				document.querySelector('#night_day').value ='blue';
+				localStorage.Theme = "night";
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = 'powderblue';
+				  i = i + 1;
+				}
+			  }
+			 else {
+				document.querySelector('body').style.backgroundColor ='#81F7F3';
+				 localStorage.Theme = "blue";
+				document.querySelector('body').style.color ='black';
+				document.querySelector('#night_day').value ='day';
+
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = '#2EFEC8';
+				  i = i + 1;
+				}
+			  }
+		}
+		function init() {
+
+			var val = localStorage.Theme;
+			if(val ==='night'){
+				document.querySelector('body').style.backgroundColor ='black';
+				document.querySelector('body').style.color ='white';
+				document.querySelector('#night_day').value ='blue';
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = 'powderblue';
+				  i = i + 1;
+				}
+			  } else if(val ==='day') {
+				document.querySelector('body').style.backgroundColor ='white';
+				document.querySelector('body').style.color ='black';
+				document.querySelector('#night_day').value ='배경 On';
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = 'white';
+				  i = i + 1;
+				}
+			  }
+			 else {
+				document.querySelector('body').style.backgroundColor ='#81F7F3';
+				document.querySelector('body').style.color ='#2EFEC8';
+				document.querySelector('#night_day').value ='day';
+				var links = document.querySelectorAll('a');
+				var i = 0;
+				while(i < links.length){
+				  links[i].style.color = '#2EFEC8';
+				  i = i + 1;
+				}
+			  }
+		}
+	</script>
 </body>
 </html>
